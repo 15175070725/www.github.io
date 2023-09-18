@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>获取表单</title>
+    <script type="text/javascript">
+        // 用于提交表单的方法
+        function submitForm(){
+            // 获取表单元素对象
+            var form = document.forms[0];
+
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            if(username.value==""){
+                alert("用户名不能为空");
+            }else if(password.value==""||password.value.length&lt;6){
+                alert("密码不能为空");
+            }else{
+                // 提交表单
+                form.submit();
+            }
+        }
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+<form id="form1" action="" method="get">
+    用户名：<input id="username" type="text" name="username"/><br/>
+    密码：<input id="password" type="password" name="password"/><br/>
+    <input type="button" value="登录" onclick="submitForm()"/>
+</form>
+</body>
+</html>

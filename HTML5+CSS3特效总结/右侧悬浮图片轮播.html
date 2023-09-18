@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #imgbox{
+            position: relative;
+        }
+        li{
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        a{
+            text-decoration: none;
+            font-family: "微软雅黑", Arial;
+            color:#000;
+        }
+
+        #imgbox a{
+            display: block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            right: -52px;/*偏移量=a的宽度*/
+            z-index: 100;
+            border: 1px solid #ccc;
+            background-color: yellowgreen;
+        }
+
+        #imgbox a:hover{
+            background-color: #d80000;
+            color:#fff;
+        }
+        #imgbox li:hover{
+            z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+<div id="imgbox">
+    <ul>
+        <li>
+            <a href="#" style="margin-top:50px;">图片1</a>
+            <img src="image/鼠标悬浮焦点图片轮播/jd.jpg">
+        </li>
+        <li>
+            <a href="#" style="margin-top:100px;">图片2</a>
+            <img src="image/鼠标悬浮焦点图片轮播/jd2.jpg">
+        </li>
+        <li>
+            <a href="#" style="margin-top:150px;">图片3</a>
+            <img src="image/鼠标悬浮焦点图片轮播/jd3.jpg">
+        </li>
+        <li>
+            <a href="#" style="margin-top:200px;">图片4</a>
+            <img src="image/鼠标悬浮焦点图片轮播/jd4.jpg">
+        </li>
+        <li>
+            <a href="#" style="margin-top:250px;">图片5</a>
+            <img src="image/鼠标悬浮焦点图片轮播/jd5.jpg">
+        </li>
+    </ul>
+</div>
+</body>
+</html>

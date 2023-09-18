@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function selectAll(){
+            var checklist = document.getElementsByName ("selected");
+            if(document.getElementById("controlAll").checked)
+            {
+                for(var i=0;i<checklist.length;i++)
+                {
+                    checklist[i].checked = 1;
+                }
+            }else{
+                for(var j=0;j<checklist.length;j++)
+                {
+                    checklist[j].checked = 0;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<form>
+    <input onclick="selectAll()" type="checkbox"   name="controlAll" style="controlAll" id="controlAll"/>全选<br>
+    <input type="checkbox" name="selected" value="1"/><br>
+    <input type="checkbox" name="selected" value="2"/><br>
+    <input type="checkbox" name="selected" value="3"/><br>
+    <input type="checkbox" name="selected" value="4"/><br>
+    <input type="checkbox" name="selected" value="5"/><br>
+    <input type="checkbox" name="selected" value="6"/><br>
+</form>
+</body>
+</html>

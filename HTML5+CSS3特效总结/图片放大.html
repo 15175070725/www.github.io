@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大图片</title>
+    <style>
+        li {
+            list-style: none;
+            border: 1px solid #666;
+            width: 320px;
+            height: 250px;
+            float: left;
+            margin: 0 5px;
+        }
+
+        li > div {
+            width: 300px;
+            margin: 10px auto;
+            overflow: hidden;
+            border: 5px solid red;
+        }
+
+        .box img {
+            width: 300px;
+            transition: all 1s ease-out;
+        }
+
+        .box img:hover {
+            transform: scale(1.5);
+        }
+
+        /*----------------蒙版设置--------------------*/
+        .box {
+            position: relative;
+        }
+        .box .mengban {
+            display: block;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            top: 300px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff; /*蒙版的背景颜色*/
+            transition: all 1s ease-out;
+        }
+        .box:hover .mengban {
+            opacity:0.6;
+            top: 0;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao1.jpg">
+                    <!--遮罩效果-->
+                    <div class="mengban"></div>
+                    <div class="mengban"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+        <ul>
+            <li>
+                <div class="box">
+                     <img src="image/图片放大/chuqiao2.jpg">
+                     <div class="mengban"></div>
+                     <div class="mengban"></div>
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao3.jpg">
+                    <div class="mengban"></div>
+                    <div class="mengban"></div>
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao4.jpg">
+                </div>
+            </li>
+
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao6.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao7.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao8.jpg">
+                 </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao9.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao10.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao11.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao3.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao10.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao11.jpg">
+                </div>
+            </li>
+            <li>
+                <div class="box">
+                    <img src="image/图片放大/chuqiao3.jpg">
+                </div>
+            </li>
+    </ul>
+    </div>
+</body>
+</html>
