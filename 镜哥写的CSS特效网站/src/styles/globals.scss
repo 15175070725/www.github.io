@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* autoprefixer: on */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  transition: all 0.1s;
+  overflow-x: hidden;
+}
+
+:root {
+  --background: white;
+  --foreground: black;
+  --primary: #1b2947;
+  --blue: #0071e2;
+  --blue-hover: #016dd9;
+  --red: #ff5858;
+  --green: #06ad0c;
+  --darkred: #ff0707;
+  --black: black;
+  --gold: #e7d000;
+  --lightgray: #e8e8e8;
+  --offwhite: #f2f2f2;
+  --grey: #9c9c9c;
+  --blue-grey-1: #9fa3af;
+  --blue-grey-2: #bbbec9be;
+  --secondary-grey-dark: #292929;
+  --secondary-grey-light: #dcdcdc;
+  --maindark: #171717;
+  --dark: #191825;
+  --light: #EFF5F5;
+  --semidark: #181818;
+  --starbg: radial-gradient(
+    220% 105% at top center,
+    #1b2947 10%,
+    #75517d 40%,
+    #e96f92 65%,
+    #f7f7b6
+  );
+  --code_bg: #1b2947;
+  --comment: #6272a4;
+  --code_fore: #f8f8f2;
+  --selection: #44475a;
+  --cyan: #8be9fd;
+  --green: #bd93f9;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+  --white: #FFF;
+  --bgV2: #1b294740;
+}
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+  --primary: #f2f2f2;
+  --lightgray: #2c2c2c;
+  --starbg: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  --code_bg: #1c1c1c;
+  --bgV2: #ff79c650;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.prose {
+  max-width: 75ch;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.writeText {
+  font-family: 'Merriweather', 'Georgia', serif;
+}
+.article {
+  font-family: 'Merriweather', 'Georgia', serif;
+}
+
+@layer utilities {
+  .animated-underline {
+    background-image: linear-gradient(#33333300, #33333300),
+      linear-gradient(
+        to right,
+        var(--color-primary-400),
+        var(--color-primary-500)
+      );
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .animated-underline {
+      transition: 0.3s ease;
+      transition-property: background-size, color, background-color,
+        border-color;
+    }
+  }
+  .animated-underline:hover,
+  .animated-underline:focus-visible {
+    background-size: 0 2px, 100% 2px;
+  }
+}
+
+[data-fade] {
+  @apply translate-y-0 opacity-0 transition duration-[400ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+}
+.fade-in-start [data-fade] {
+  @apply translate-y-0 opacity-100;
+}
+.fade-in-start [data-fade='1'] {
+  transition-delay: 100ms;
+}
+.fade-in-start [data-fade='2'] {
+  transition-delay: 200ms;
+}
+.fade-in-start [data-fade='3'] {
+  transition-delay: 300ms;
+}
+.fade-in-start [data-fade='4'] {
+  transition-delay: 400ms;
+}
+.fade-in-start [data-fade='5'] {
+  transition-delay: 500ms;
+}
+.fade-in-start [data-fade='6'] {
+  transition-delay: 600ms;
+}
+.fade-in-start [data-fade='7'] {
+  transition-delay: 700ms;
+}
+.fade-in-start [data-fade='8'] {
+  transition-delay: 800ms;
+}
+
+.animate-shadow {
+  @apply after:absolute after:inset-0 after:z-[-1] after:opacity-0 after:transition-opacity hover:after:opacity-100;
+  @apply after:shadow-md dark:after:shadow-none;
+}
+
+.typing-demo {
+  font-family: Poppins;
+  font-size: 2.5rem;
+}
