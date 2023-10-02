@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+
+    <!--shiro 核心管理类-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="realm" ref="authRealm"/>   <!--登陆接口实现-->
+    </bean>
+
+
+    <!--shiro的缓存 加载默认配置-->
+    <bean id="cacheManager"  class="org.apache.shiro.cache.ehcache.EhCacheManager">
+
+    </bean>
+
+    <!--自定义登陆实现逻辑-->
+    <bean id="authRealm" class="online.zzzzzzz.basics.shiro.AuthRealm">
+
+    </bean>
+
+
+    <!--生命周期-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!--启用在spring中启用shiro注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
+    <!--shiro与spring整合的过滤器，此过滤器名称与web.xml中相同-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>    <!--登陆地址：任何不能匿名访问的url都将自动跳转到此地址-->
+        <property name="successUrl" value="/home"/>   <!--登陆成功地址：登陆成功后自动跳转此url-->
+        <property name="unauthorizedUrl" value="/unauthorized"/>    <!--此地址可以不用授权-->
+
+        <!--shiro的拦截权限配置，访问优先级从上到下-->
+        <property name="filterChainDefinitions">
+            <value>
+                # 无需认证:
+                /login = anon
+                /SSO = anon
+                /chat/** = anon
+                /html/article/** =anon
+                /css/** =anon
+                /img/** =anon
+                /js/** =anon
+                /libs/** =anon
+                /medias/** =anon
+                /xml/** =anon
+                /webfonts/** =anon
+                /merged/** =anon
+                /favicon.png =anon
+                /GuestBookController/listPage = anon
+                /GuestBookController/save = anon
+                /blogBlogs/frontList = anon
+                /blogBlogs/getCityAndIP = anon
+                /blogBlogs/getIp = anon
+                /blogBlogs/tagsList = anon
+                /blogBlogs/archiveList = anon
+                /blogBlogs/ptu = anon
+                /blogBlogs/poetry = anon
+                /blogBlogs/tagsBt/** = anon
+                /vCode = anon
+                /noAuth/** = anon
+                # 需要认证
+                /** = authc
+            </value>
+        </property>
+    </bean>
+</beans>
